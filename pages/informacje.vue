@@ -7,14 +7,15 @@
         <b>tur-jaktorow.pl</b> to oficjalna strona Jaktorowskiego klubu
         piłkarskiego Tur Jaktorów.
       </p>
+      <p>{{ Math.random() }}</p>
       <p>
         <span>Kontakt z klubem:</span>
-        {{ ' ' }}
+        {{ " " }}
         <a href="tel:468565132">46 856 51 32</a>
       </p>
       <p>
         <span>Fanpage:</span>
-        {{ ' ' }}
+        {{ " " }}
         <a href="https://www.facebook.com/lksturjaktorow" target="_blank"
           >www.facebook.com/lksturjaktorow</a
         >
@@ -38,16 +39,16 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Informacje',
+    title: "Informacje",
     meta: [
       {
-        name: 'description',
+        name: "description",
         content:
-          'Informacje na temat strony tur-jaktorow.pl. Zauważyłeś błąd lub masz pomysł na rozwój strony? Skontaktuj się z nami.',
-      },
-    ],
+          "Informacje na temat strony tur-jaktorow.pl. Zauważyłeś błąd lub masz pomysł na rozwój strony? Skontaktuj się z nami."
+      }
+    ]
   },
-  name: 'Information',
+  name: "Information"
 };
 </script>
 

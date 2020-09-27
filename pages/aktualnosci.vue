@@ -6,6 +6,7 @@
         <template v-slot:title>{{ post.emoji }} {{ post.day }}</template>
         <template v-slot:content>
           <p class="post-content">{{ post.message }}</p>
+          <p>{{ Math.random() }}</p>
           <a :href="post.link" target="_blank"
             >➡️ Zobacz post i zdjęcia na FB</a
           >
