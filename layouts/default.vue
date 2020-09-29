@@ -103,15 +103,6 @@ export default {
   width: 100%;
 }
 
-.page-enter-active {
-  transition: transform 0.3s ease-out, opacity 0.3s ease;
-}
-
-.page-enter {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
 .pageUp {
   position: fixed;
   display: block;
@@ -154,14 +145,6 @@ export default {
 
   .view {
     padding: 0;
-  }
-
-  .page-enter-active {
-    transition: transform 0.8s ease-out, opacity 0.8s ease;
-  }
-
-  .page-enter {
-    transform: translateY(-80vh);
   }
 
   .pageUp {
