@@ -66,8 +66,8 @@ import info from '~/data/info';
 import schedule from '~/data/schedule';
 
 export default {
-  metaInfo: {
-    title: 'Terminarz',
+  head: {
+    title: 'Terminarz - Tur Jaktorów',
     meta: [
       {
         name: 'description',

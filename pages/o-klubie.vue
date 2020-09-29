@@ -48,8 +48,8 @@
 
 <script>
 export default {
-  metaInfo: {
-    title: 'O klubie',
+  head: {
+    title: 'O klubie - Tur Jaktorów',
     meta: [
       {
         name: 'description',

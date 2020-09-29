@@ -18,7 +18,7 @@ import Scoreboard from '~/components/Home/Scoreboard.vue';
 
 export default Vue.extend({
   head: {
-    title: 'Tur Jaktorów - Strona główna',
+    title: 'Strona główna - Tur Jaktorów',
     meta: [
       {
         name: 'description',

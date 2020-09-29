@@ -1,12 +1,17 @@
 <template>
   <div id="news" class="news">
     <h2 class="secondaryTitle viewTitle">Aktualności</h2>
+    <p v-if="$fetchState.pending" class="white">
+      Trwa pobierania aktualności...
+    </p>
+    <p v-else-if="$fetchState.error" class="white">
+      Wystąpił błąd. Spróbuj ponownie :(
+    </p>
     <div class="posts">
       <Item v-for="(post, index) in posts" :key="index">
         <template v-slot:title>{{ post.emoji }} {{ post.day }}</template>
         <template v-slot:content>
           <p class="post-content">{{ post.message }}</p>
-          <p>{{ Math.random() }}</p>
           <a :href="post.link" target="_blank"
             >➡️ Zobacz post i zdjęcia na FB</a
           >
@@ -21,57 +26,57 @@
 </template>
 
 <script>
-import Item from "~/components/Item.vue";
+import Item from '~/components/Item.vue';
 
 export default {
-  metaInfo: {
-    title: "Aktualności",
+  head: {
+    title: 'Aktualności - Tur Jaktorów',
     meta: [
       {
-        name: "description",
+        name: 'description',
         content:
-          "Najnowsze aktualności na temat Tura Jaktorów, ostatnie wyniki meczów oraz informacje o wyjazdach, obozach i treningach."
-      }
-    ]
+          'Najnowsze aktualności na temat Tura Jaktorów, ostatnie wyniki meczów oraz informacje o wyjazdach, obozach i treningach.',
+      },
+    ],
   },
-  name: "News",
+  name: 'News',
   components: {
-    Item
+    Item,
   },
-  data: function() {
+  data: function () {
     return {
-      page: 1,
-      news: []
+      news: [],
     };
   },
   computed: {
-    posts: function() {
-      const prepered = this.news.map(item => ({
-        day: item.created_time
-          .slice(0, 10)
-          .split("-")
-          .reverse()
-          .join("."),
-        message: item.message || "",
+    posts: function () {
+      const prepered = this.news.map((item) => ({
+        day: item.created_time.slice(0, 10).split('-').reverse().join('.'),
+        message: item.message || '',
         link:
-          "https://www.facebook.com/lksturjaktorow/posts/" +
-          item.id.split("_")[1]
+          'https://www.facebook.com/lksturjaktorow/posts/' +
+          item.id.split('_')[1],
       }));
 
-      const filtered = prepered.filter(item => item.message !== "");
+      const filtered = prepered.filter((item) => item.message !== '');
       return filtered;
-    }
+    },
+  },
+  methods: {
+    refresh() {
+      this.$fetch();
+    },
   },
   async fetch() {
     this.news = await fetch(
-      `https://graph.facebook.com/v8.0/lksturjaktorow/posts?limit=16&access_token=${process.env.FB_TOKEN}`
+      `https://graph.facebook.com/v8.0/lksturjaktorow/posts?limit=16&access_token=${process.env.FB_TOKEN}`,
     )
-      .then(async res => {
+      .then(async (res) => {
         const results = await res.json();
         return results.data;
       })
-      .catch(err => console.log(err));
-  }
+      .catch((err) => console.log(err));
+  },
 };
 </script>
 
@@ -88,6 +93,10 @@ export default {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr;
+}
+
+.white {
+  color: white;
 }
 
 .post {
