@@ -3,9 +3,9 @@ export default [
     {
       club: "LKS Tur Jaktorów",
       logo: "tur.jpg",
-      stats: [2, 1, 0],
-      scoredGoals: [7,10,9],
-      lostGoals: [4,2,9],
+      stats: [3, 1, 0],
+      scoredGoals: [7,10,9,7],
+      lostGoals: [4,2,9,6],
     },
     {
       club: "Unia II Boryszew",
@@ -17,9 +17,9 @@ export default [
     {
       club: "PKS Legion Pruszków",
       logo: "legion-pruszkow.jpg",
-      stats: [0, 0, 1],
-      scoredGoals: [false,5],
-      lostGoals: [false,8]
+      stats: [0, 0, 2],
+      scoredGoals: [false,5,false,6],
+      lostGoals: [false,8,false,7]
     },
     {
       club: "KS Błonianka II",

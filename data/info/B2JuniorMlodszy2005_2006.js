@@ -3,9 +3,9 @@ export default [
   {
     club: "LKS Tur Jaktorów",
     logo: "tur.jpg",
-    stats: [1, 2, 1],
-    scoredGoals: [1,0,false,false,4,false,1],
-    lostGoals: [3,0,false,false,2,false,1],
+    stats: [1, 2, 2],
+    scoredGoals: [1,0,false,false,4,false,1,0],
+    lostGoals: [3,0,false,false,2,false,1,6],
   },
   {
     club: "WISŁA Maciejowice",
@@ -45,8 +45,8 @@ export default [
   {
     club: "GKS Naprzód Stare Babice",
     logo: "stare-babice.jpg",
-    stats: [4, 0, 0],
-    scoredGoals: [3,false,13,false,3,false,13],
-    lostGoals: [1,false,0,false,1,false,0]
+    stats: [5, 0, 0],
+    scoredGoals: [3,false,13,false,3,false,13,6],
+    lostGoals: [1,false,0,false,1,false,0,0]
   },
 ];

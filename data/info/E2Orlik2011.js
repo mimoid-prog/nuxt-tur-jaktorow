@@ -3,9 +3,9 @@ export default [
     {
       club: "LKS Tur Jaktorów",
       logo: "tur.jpg",
-      stats: [0, 1, 2],
-      scoredGoals: [1,0,5],
-      lostGoals: [18,17,5],
+      stats: [0, 1, 3],
+      scoredGoals: [1,0,5,2],
+      lostGoals: [18,17,5,5],
     },
     {
       club: "PKS Mustangi",
@@ -25,8 +25,8 @@ export default [
       club: "KS Mszczonowianka",
       logo: "mszczonowianka.jpg",
       stats: [0, 0, 2],
-      scoredGoals: [4,0],
-      lostGoals: [13,20]
+      scoredGoals: [4,0,false,5],
+      lostGoals: [13,20,false,2]
     },
     {
       club: "KS Błonianka II",
