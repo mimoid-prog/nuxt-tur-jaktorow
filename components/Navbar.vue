@@ -23,7 +23,7 @@
               <NuxtLink to="/" exact>Strona główna</NuxtLink>
             </li>
             <li>
-              <a href="http://localhost:3000/aktualnosci">Aktualności</a>
+              <a href="https://tur-jaktorow.pl/aktualnosci">Aktualności</a>
             </li>
             <li>
               <NuxtLink to="/o-klubie">O klubie</NuxtLink>
