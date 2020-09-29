@@ -18,7 +18,6 @@ export default {
   components: true,
   buildModules: [
     "@nuxt/typescript-build",
-    "@nuxtjs/dotenv",
     [
       "@nuxtjs/google-analytics",
       {
@@ -26,6 +25,9 @@ export default {
       }
     ]
   ],
-  modules: [],
-  build: {}
+  modules: ["nuxt-svg-loader"],
+  build: {},
+  privateRuntimeConfig: {
+    FB_TOKEN: process.env.FB_TOKEN
+  }
 };

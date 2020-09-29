@@ -1,29 +1,21 @@
 <template>
   <div id="news" class="news">
     <h2 class="secondaryTitle viewTitle">Aktualności</h2>
-    <p v-if="$fetchState.pending" class="fetching">
-      Trwa pobierania aktualności...
-    </p>
-    <p v-else-if="$fetchState.error" class="fetching">
-      Wystąpił błąd. Spróbuj ponownie :(
-    </p>
-    <div v-else>
-      <div class="posts">
-        <Item v-for="(post, index) in posts" :key="index">
-          <template v-slot:title>{{ post.emoji }} {{ post.day }}</template>
-          <template v-slot:content>
-            <p class="post-content">{{ post.message }}</p>
-            <a :href="post.link" target="_blank"
-              >➡️ Zobacz post i zdjęcia na FB</a
-            >
-          </template>
-        </Item>
-      </div>
-      <p class="old-posts-info">
-        Starsze posty i aktualności znajdziesz na fanpagu Tura Jaktorów na
-        facebooku.
-      </p>
+    <div class="posts">
+      <Item v-for="(post, index) in posts" :key="index">
+        <template v-slot:title>{{ post.emoji }} {{ post.day }}</template>
+        <template v-slot:content>
+          <p class="post-content">{{ post.message }}</p>
+          <a :href="post.link" target="_blank"
+            >➡️ Zobacz post i zdjęcia na FB</a
+          >
+        </template>
+      </Item>
     </div>
+    <p class="old-posts-info">
+      Starsze posty i aktualności znajdziesz na fanpagu Tura Jaktorów na
+      facebooku.
+    </p>
   </div>
 </template>
 
@@ -50,33 +42,27 @@ export default {
       news: []
     };
   },
-  computed: {
-    posts: function() {
-      const prepered = this.news.map(item => ({
-        day: item.created_time
-          .slice(0, 10)
-          .split("-")
-          .reverse()
-          .join("."),
-        message: item.message || "",
-        link:
-          "https://www.facebook.com/lksturjaktorow/posts/" +
-          item.id.split("_")[1]
-      }));
+  async asyncData({ $config: { FB_TOKEN } }) {
+    const rawRes = await fetch(
+      `https://graph.facebook.com/v8.0/lksturjaktorow/posts?limit=16&access_token=${FB_TOKEN}`
+    );
+    const res = await rawRes.json();
+    const prepered = res.data.map(item => ({
+      day: item.created_time
+        .slice(0, 10)
+        .split("-")
+        .reverse()
+        .join("."),
+      message: item.message || "",
+      link:
+        "https://www.facebook.com/lksturjaktorow/posts/" + item.id.split("_")[1]
+    }));
 
-      const filtered = prepered.filter(item => item.message !== "");
-      return filtered;
-    }
-  },
-  async fetch() {
-    this.news = await fetch(
-      `https://graph.facebook.com/v8.0/lksturjaktorow/posts?limit=16&access_token=${process.env.FB_TOKEN}`
-    )
-      .then(async res => {
-        const results = await res.json();
-        return results.data;
-      })
-      .catch(err => console.log(err));
+    const filtered = prepered.filter(item => item.message !== "");
+
+    return {
+      posts: filtered
+    };
   }
 };
 </script>
