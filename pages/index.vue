@@ -9,41 +9,41 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import SelectBox from '~/components/SelectBox.vue';
-import Match from '~/components/Home/Match.vue';
-import Banner from '~/components/Home/Banner.vue';
-import Scoreboard from '~/components/Home/Scoreboard.vue';
+<script>
+import Vue from "vue";
+import SelectBox from "~/components/SelectBox.vue";
+import Match from "~/components/Home/Match.vue";
+import Banner from "~/components/Home/Banner.vue";
+import Scoreboard from "~/components/Home/Scoreboard.vue";
 
 export default Vue.extend({
   head: {
-    title: 'Strona główna - Tur Jaktorów',
+    title: "Strona główna - Tur Jaktorów",
     meta: [
       {
-        name: 'description',
+        name: "description",
         content:
-          'Oficjalna strona klubu piłkarskiego LKS Tur Jaktorów. Zobacz ostatnie mecze, wyniki i tabelę rozgrywek. Klasa A seniorów oraz wszystkie roczniki juniorskie w jednym miejscu.',
-      },
-    ],
+          "Oficjalna strona klubu piłkarskiego LKS Tur Jaktorów. Zobacz ostatnie mecze, wyniki i tabelę rozgrywek. Klasa A seniorów oraz wszystkie roczniki juniorskie w jednym miejscu."
+      }
+    ]
   },
-  name: 'index',
+  name: "index",
   components: {
     Match,
     Banner,
     Scoreboard,
-    SelectBox,
+    SelectBox
   },
-  data: function () {
+  data: function() {
     return {
-      selected: 'senior',
+      selected: "senior"
     };
   },
   methods: {
-    onSelect: function (val: string) {
+    onSelect: function(val) {
       this.selected = val;
-    },
-  },
+    }
+  }
 });
 </script>
 

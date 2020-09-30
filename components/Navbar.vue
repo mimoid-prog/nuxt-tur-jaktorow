@@ -23,7 +23,7 @@
               <NuxtLink to="/" exact>Strona główna</NuxtLink>
             </li>
             <li>
-              <a href="https://tur-jaktorow.pl/aktualnosci">Aktualności</a>
+              <NuxtLink to="/aktualnosci">Aktualności</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/o-klubie">O klubie</NuxtLink>
@@ -43,17 +43,17 @@
 
 <script>
 export default {
-  name: "Navbar",
-  data: function() {
+  name: 'Navbar',
+  data: function () {
     return {
-      active: false
+      active: false,
     };
   },
   watch: {
     $route() {
       this.active = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -92,7 +92,7 @@ h1 {
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       display: block;
       width: 42px;
       height: 6px;
@@ -182,7 +182,7 @@ a {
   display: inline-block;
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: 0;
     height: 4px;
@@ -192,7 +192,7 @@ a {
 }
 
 .nuxt-link-active:after {
-  content: "";
+  content: '';
   display: block;
   width: 100%;
   height: 4px;

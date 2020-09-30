@@ -17,7 +17,6 @@ export default {
   plugins: [],
   components: true,
   buildModules: [
-    "@nuxt/typescript-build",
     [
       "@nuxtjs/google-analytics",
       {

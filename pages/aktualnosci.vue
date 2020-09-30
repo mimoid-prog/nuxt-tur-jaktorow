@@ -43,10 +43,17 @@ export default {
     };
   },
   async asyncData({ $config: { FB_TOKEN } }) {
-    const rawRes = await fetch(
-      `https://graph.facebook.com/v8.0/lksturjaktorow/posts?limit=16&access_token=${FB_TOKEN}`
-    );
-    const res = await rawRes.json();
+    let rawRes, res;
+    if (process.server) {
+      rawRes = await fetch(
+        `https://graph.facebook.com/v8.0/lksturjaktorow/posts?limit=16&access_token=${process.env.FB_TOKEN}`
+      );
+      res = await rawRes.json();
+    } else {
+      rawRes = await fetch(`/api/fb`);
+      res = await rawRes.json();
+    }
+
     const prepered = res.data.map(item => ({
       day: item.created_time
         .slice(0, 10)
