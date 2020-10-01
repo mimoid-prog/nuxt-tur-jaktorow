@@ -51,6 +51,7 @@ export default {
       res = await rawRes.json();
     } else {
       rawRes = await fetch(`/api/fb`);
+      console.log(rawRes);
       res = await rawRes.json();
     }
 
