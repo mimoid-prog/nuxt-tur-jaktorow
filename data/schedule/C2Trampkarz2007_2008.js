@@ -146,9 +146,9 @@ export default [
         teamTwo: 1,
       },
       {
-        date: "10.10.2020",
-        time: "",
-        home: null,
+        date: "11.10.2020",
+        time: "15:00",
+        home: false,
         teamOne: 4,
         teamTwo: 0,
       },
@@ -181,8 +181,8 @@ export default [
       },
       {
         date: "17.10.2020",
-        time: "",
-        home: null,
+        time: "15:00",
+        home: true,
         teamOne: 0,
         teamTwo: 1,
       },
@@ -194,8 +194,8 @@ export default [
     matches: [
       {
         date: "24.10.2020",
-        time: "",
-        home: null,
+        time: "10:45",
+        home: false,
         teamOne: 5,
         teamTwo: 0,
       },
@@ -234,9 +234,9 @@ export default [
         teamTwo: 1,
       },
       {
-        date: "07.11.2020",
-        time: "",
-        home: null,
+        date: "08.11.2020",
+        time: "11:00",
+        home: false,
         teamOne: 2,
         teamTwo: 0,
       },
